@@ -1,4 +1,0 @@
-My Itinerary, página completamente en inglés.
-Los repositorios para la aplicación son privados.
-Lunes 18 a las 9am tiene que estar pusheado al repositorio de GitHub el Sprint 1.
-Poner como message "final sprint 1"
