@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+    
+}
+
+header {
+    background-color: #894789;
+    height: 10vh;
+    display: flex;
+    font-size: 20px;
+    color: cornsilk;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fotoUsuario {
+   width: 5vw;
+}
+
+.fotoLogo {
+    width: 30vw;
+}
+
+.flecha {
+    margin-top: 2vw;
+    width: 5vw;
+}
+
+.flecha:hover {
+    transform: scale(1.4);
+    cursor: pointer;
+    transition: .5 ease;
+}
+
+.divLogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+nav a {
+    padding-left: 2vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.fotosMain {
+    display: flex;
+}
+
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #894789;
+    height: 5vh;
+}
+
+.textoFlecha {
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: aqua;
+    padding: 1vw;
+    border-radius: 30px;
+}
+
+
+
+
+
+.contenedorPadre {
+    width: 50vw;
+}
+
+
+.contenedorImg {
+    height: 50vh;
+    color: #ffffff;
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+    
+}
+
+.fotoCiudad {
+    width: 50vw;
+}
