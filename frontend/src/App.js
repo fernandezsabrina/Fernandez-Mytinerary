@@ -4,15 +4,25 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
+import Cities from './components/Cities'
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 
 function App() {
   return (
     <>
+    <BrowserRouter> 
     <Header />
-    <Main/>
+    <Switch>
+    <Route exact path="/" component={Main}/>
+    <Route path="/cities" component={Cities}/>
+    <Redirect to="/" /> 
+    </Switch>
     <Footer />
+    </BrowserRouter>
     </>
     );
 }
 
 export default App;
+
+

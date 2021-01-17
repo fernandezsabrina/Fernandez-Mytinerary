@@ -1,8 +1,10 @@
 const Footer = () => {
     return (
         <>
-        <footer>
-        </footer>
+            <footer>
+                <p>Copyright 2021 | Mytinerarie</p>
+                <p>Contact us: contact@mytinerarie.com</p>
+            </footer>
 
         </>
     )

@@ -36,7 +36,7 @@ header {
 .flecha:hover {
     transform: scale(1.4);
     cursor: pointer;
-    transition: .5 ease;
+    transition: .75s ease;
 }
 
 .divLogo {
@@ -54,6 +54,17 @@ nav {
 
 nav a {
     padding-left: 2vw;
+    color: #ffffff;
+}
+
+nav a:hover {
+    color: rgb(255, 177, 242);
+    text-decoration: none;
+}
+
+nav .active {
+    color: rgb(42, 205, 255);
+    font-weight: bold;
 }
 
 main {
@@ -79,6 +90,16 @@ main {
 footer {
     background-color: #894789;
     height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: cornsilk;
+}
+
+footer p {
+    padding-top: 20px;
+    font-size: 1vw;
+    text-align: center;
 }
 
 .textoFlecha {
@@ -89,23 +110,83 @@ footer {
     border-radius: 30px;
 }
 
+.cities {
+    margin-bottom: 20vw;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
+/* --------Carrusel----------- */
 
 
 .contenedorPadre {
-    width: 50vw;
+    padding: 2vh;
+    
 }
 
 
 .contenedorImg {
-    height: 50vh;
+    width: 48%;
+    height: 48%;
     color: #ffffff;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
+    margin: 1%;
+    border-radius: 15px;
     
 }
 
+.contenedorSlide {
+
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 50px;
+    height: 50px;
+
+}
+
+.carousel-control-next, .carousel-control-prev {
+    margin: 0 -5vw;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e") !important;
+}
+
+
+
 .fotoCiudad {
     width: 50vw;
+}
+
+.divCarrusel {
+    padding-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textoCarrusel {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(221, 83, 221);
+    padding: 15px;
+    border-radius: 30px;
 }

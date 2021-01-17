@@ -1,5 +1,5 @@
 import imagen from '../assets/userblue.png'
-import logo from '../assets/logomytinerary.png'
+import {NavLink} from 'react-router-dom'
 
 
 const Header = () => {
@@ -9,18 +9,11 @@ const Header = () => {
             <header>
                 <div><img className="fotoUsuario" src={imagen}></img></div>
                 <nav>
-                    <a>Home</a>
-                    <a>Cities</a>
-                    <a>Contact</a>
+                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink to="/cities">Cities</NavLink>
                 </nav>
 
             </header>
-            <div className="divLogo">
-                <img className="fotoLogo" src={logo}></img>
-                <p>Find your perfect trip, designed by insiders who know and love their cities.</p>
-                
-
-            </div>
 
 
         </>

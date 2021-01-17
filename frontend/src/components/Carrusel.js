@@ -11,27 +11,29 @@ const Carrusel = () => {
 
     ['barcelona', 'rome', 'sao paulo', 'dubai'],
 
-    ['amsterdam', 'new york', 'london', 'venecia']
+    ['amsterdam', 'new york', 'london', 'venice']
 
   ]
 
   return (
 
-    <Carousel>
-      {ciudades.map(slide => {
+    <div className="divCarrusel">
+      <h2 className="textoCarrusel">POPULAR MYTINERARIES</h2>
+      <Carousel>
+        {ciudades.map((slide, i) => {
 
-        return (
+          return (
 
-          <Carousel.Item className="contenedorPadre">
-            <div id="contenedorSlide">
-              <Slide slide={slide} />
-            </div>
-          </Carousel.Item>
-        )
-      })}
+            <Carousel.Item key={i} className="contenedorPadre" interval={2500}>
+              <div className="contenedorSlide">
+                <Slide slide={slide} />
+              </div>
+            </Carousel.Item>
+          )
+        })}
 
-    </Carousel>
-
+      </Carousel>
+    </div>
 
   )
 
