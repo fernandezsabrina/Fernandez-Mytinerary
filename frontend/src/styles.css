@@ -16,7 +16,8 @@ header {
     display: flex;
     font-size: 20px;
     color: cornsilk;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0% 2vw;
     align-items: center;
 }
 

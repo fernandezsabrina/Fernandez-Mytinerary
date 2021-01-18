@@ -7,7 +7,7 @@ import Slide from './Slide'
 const Carrusel = () => {
 
   const ciudades = [
-    ['tokyo', 'buenos aires', 'praga', 'paris'],
+    ['tokyo', 'buenos aires', 'prague', 'paris'],
 
     ['barcelona', 'rome', 'sao paulo', 'dubai'],
 
