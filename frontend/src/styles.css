@@ -73,13 +73,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .fotosMain {
     display: flex;
 }
-
 
 #root {
     display: flex;
@@ -121,29 +119,25 @@ footer p {
     align-items: center;
 }
 
-
 /* --------Carrusel----------- */
-
 
 .contenedorPadre {
     padding: 2vh;
     
 }
 
-
 .contenedorImg {
     width: 48%;
     height: 48%;
     color: #ffffff;
+    font-size: 30px;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     margin: 1%;
     border-radius: 15px;
-    
 }
 
 .contenedorSlide {
-
     width: 70vw;
     height: 100vh;
     display: flex;
@@ -154,7 +148,6 @@ footer p {
 .carousel-control-next-icon, .carousel-control-prev-icon {
     width: 50px;
     height: 50px;
-
 }
 
 .carousel-control-next, .carousel-control-prev {
@@ -168,8 +161,6 @@ footer p {
 .carousel-control-next-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e") !important;
 }
-
-
 
 .fotoCiudad {
     width: 50vw;

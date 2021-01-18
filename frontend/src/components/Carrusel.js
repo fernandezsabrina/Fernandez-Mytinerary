@@ -1,18 +1,12 @@
 import Carousel from "react-bootstrap/Carousel"
 import Slide from './Slide'
 
-
-
-
 const Carrusel = () => {
 
   const ciudades = [
     ['tokyo', 'buenos aires', 'prague', 'paris'],
-
     ['barcelona', 'rome', 'sao paulo', 'dubai'],
-
     ['amsterdam', 'new york', 'london', 'venice']
-
   ]
 
   return (
@@ -21,9 +15,7 @@ const Carrusel = () => {
       <h2 className="textoCarrusel">POPULAR MYTINERARIES</h2>
       <Carousel>
         {ciudades.map((slide, i) => {
-
           return (
-
             <Carousel.Item key={i} className="contenedorPadre" interval={2500}>
               <div className="contenedorSlide">
                 <Slide slide={slide} />
@@ -31,7 +23,6 @@ const Carrusel = () => {
             </Carousel.Item>
           )
         })}
-
       </Carousel>
     </div>
 

@@ -1,6 +1,5 @@
 import imagen from '../assets/userblue.png'
-import {NavLink} from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
 
@@ -15,11 +14,8 @@ const Header = () => {
 
             </header>
 
-
         </>
-
     )
-
 }
 
 export default Header
