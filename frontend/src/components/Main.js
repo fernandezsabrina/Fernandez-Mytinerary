@@ -11,12 +11,6 @@ const Main = () => {
     return (
         <>
             <main>
-                <div className="divLogo">
-                    <img className="fotoLogo" src={logo}></img>
-                    <p>Find your perfect trip, designed by insiders who know and love their cities.</p>
-
-
-                </div>
                 <div className="fotosMain">
                     <div><img src={foto1}></img></div>
                     <div><img src={foto2}></img></div>
