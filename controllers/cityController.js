@@ -16,8 +16,9 @@ const cityController = {
                 return res.json({ success: false, error: error })
             })
     },
-    allCities: (req, res) => {
+    allCities: async (req, res) => {
         // Devuelvo al frontend la lista de ciudades
+        const data = await City.find()
         res.json({
             respuesta: data
         })

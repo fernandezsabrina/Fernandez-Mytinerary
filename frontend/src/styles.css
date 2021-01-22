@@ -109,6 +109,17 @@ footer p {
     border-radius: 30px;
 }
 
+.divFlecha {
+    width: 100vw;
+    background-color: blueviolet;
+    background-image: url(../src/assets/backgroundViaje.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
 /* --------Carrusel----------- */
 
 .contenedorPadre {
@@ -157,7 +168,7 @@ footer p {
 }
 
 .divCarrusel {
-    padding-top: 5vw;
+    padding-top: 1vw;
     display: flex;
     flex-direction: column;
     justify-content: center;

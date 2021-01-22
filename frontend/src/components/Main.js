@@ -3,7 +3,7 @@ import flecha from '../assets/bluearrow.png'
 import foto1 from '../assets/foto1.png'
 import foto2 from '../assets/foto2.png'
 import foto3 from '../assets/foto3.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const Main = () => {
 
@@ -15,11 +15,16 @@ const Main = () => {
                     <div><img src={foto2}></img></div>
                     <div><img src={foto3}></img></div>
                 </div>
-                <NavLink to="/cities">
-                    <div ><img className="flecha" src={flecha}></img></div>
-                </NavLink>
+                <div className="divFlecha">
+                    <Link to="/cities">
+                        <div><img className="flecha" src={flecha}></img></div>
+                    </Link>
+                    <Link to="/cities">
+                        <p className="textoFlecha">Let's plan your next trip!</p>
+                    </Link>
 
-                <p className="textoFlecha">Let's plan your next trip!</p>
+                </div>
+
                 <Carrusel />
             </main>
         </>
