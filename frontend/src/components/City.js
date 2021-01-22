@@ -4,7 +4,7 @@ const City = (props) => {
     const [ciudad, setCiudad] = useState({})
 
     useEffect(() => {
-        const id = parseInt(props.match.params.nombreCiudad)
+        const id = props.match.params.nombreCiudad
         fetch('http://localhost:4000/city/'+id)
             .then(respuesta => respuesta.json())
             .then(data => setCiudad(data.respuesta))

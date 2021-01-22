@@ -24,16 +24,11 @@ const cityController = {
         })
     },
 
-    singleCity: (req, res) => {
+    singleCity: async (req, res) => {
         // devuelvo al frontend solo la ciudad seleccionada
-        const id = parseInt(req.params.id)
-        data.map(ciudad => {
-            if (ciudad._id === id) {
-                res.json({
-                    respuesta: ciudad
-                })
-            }
-        })
+        const id = req.params.id
+        const registro = await City.findById(id)
+        res.json({ success: true, respuesta: registro })
 
     }
 }
