@@ -1,5 +1,4 @@
-import City from '../components/City'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -22,10 +21,10 @@ const Cities = () => {
                 {ciudades.map(({ name, url, _id }) => {
                     return (
                         <div className="divCiudad" style={{ backgroundImage: `url('${url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
-                            <NavLink to={`/city/${_id}`} ><p style={{
+                            <Link to={`/city/${_id}`} style={{width: "100%"}}><p style={{
                                 width: "100%", color: "white", height: "7vh", display: "inlineBlock",
                                 backgroundColor: "#89478981", textAlign: "center"
-                            }}>{name}</p></NavLink>
+                            }}>{name}</p></Link>
                             </div>
                     )
 

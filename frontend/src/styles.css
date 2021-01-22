@@ -178,7 +178,7 @@ footer p {
 .divCiudad {
     width: 80%;
     height: 40vh;
-    background-color: rgb(58, 212, 161);
+    background-color: rgb(178, 125, 180);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,4 +199,8 @@ footer p {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.divCiudad p {
+    text-decoration: none;
 }
