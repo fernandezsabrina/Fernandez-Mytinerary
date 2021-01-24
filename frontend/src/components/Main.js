@@ -11,9 +11,9 @@ const Main = () => {
         <>
             <main>
                 <div className="fotosMain">
-                    <div><img src={foto1}></img></div>
-                    <div><img src={foto2}></img></div>
-                    <div><img src={foto3}></img></div>
+                    <div><img src={foto1} className="fotosInicio"></img></div>
+                    <div><img src={foto2} className="fotosInicio"></img></div>
+                    <div><img src={foto3} className="fotosInicio"></img></div>
                 </div>
                 <div className="divFlecha">
                     <Link to="/cities">
