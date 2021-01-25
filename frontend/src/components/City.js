@@ -10,9 +10,9 @@ const City = (props) => {
         fetch('http://localhost:4000/city/' + id)
             .then(respuesta => respuesta.json())
             .then(data => setCiudad(data.respuesta))
+        window.scrollTo(0, 0)
 
-    })
-    console.log(ciudad)
+    }, [])
 
     return (
         <div className="ciudadSin">
@@ -22,13 +22,13 @@ const City = (props) => {
 
             </div>
             <div className="itinerariesDiv">
-                <p>Sorry, no itineraries yet.
+                <p>Sorry, we have no itineraries yet...
                 </p>
             </div>
             <Link to="/cities">
                 <div className="divRedirect">
                     <img src={world} className="mundoCity"></img>
-                    <p>go back to cities</p>
+                    <p>Go back to cities</p>
                 </div>
 
             </Link>

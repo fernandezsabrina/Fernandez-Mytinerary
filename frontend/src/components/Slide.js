@@ -6,14 +6,10 @@ const Slide = (props) => {
                 const ciudadInd = require(`../assets/${ciudad.replace(" ", "-")}.jpg`)
                 return (
                     <div key={i} className="contenedorImg" style={{
-                        display: "flex", alignItems: "center",
-                        justifyContent: "center", backgroundImage: `url(${ciudadInd.default})`,
+                        backgroundImage: `url(${ciudadInd.default})`,
                         backgroundRepeat: "no-repeat", backgroundSize: "cover"
                     }}>
-                        <p style={{
-                            width: "100%", height:"5vh", display: "inlineBlock",
-                            backgroundColor: "#89478981", textAlign: "center"
-                        }}>{ciudad}</p>
+                        <p className="pCarrusel">{ciudad}</p>
                     </div>
                 )
             })}
