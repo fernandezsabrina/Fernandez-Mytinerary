@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import lupa from '../assets/lupa.png'
+// import {Spinner} from 'react-bootstrap'
+
 
 const Cities = () => {
 
     const [ciudades, setCiudades] = useState([])
     const [ciudadesFiltradas, setCiudadesFiltradas] = useState('')
     const [ciudadFiltrada, setCiudadFiltrada] = useState([])
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        setLoading(true);
+        // setLoading(true)
         fetch('http://localhost:4000/cities')
             .then(response => response.json())
-            .then(data => setCiudades(data.respuesta),
-                setLoading(false))
-
+            .then(data => 
+                setCiudades(data.respuesta) )
+            //   setLoading(false)
 
     }, [])
 
@@ -27,8 +29,12 @@ const Cities = () => {
         )
 
     }, [ciudadesFiltradas, ciudades])
- 
 
+    // if (loading=== false) {
+    //     return (
+    //         <Spinner/>
+    //     )
+    // }
 
     return (
         <>
@@ -38,15 +44,16 @@ const Cities = () => {
                     <div><img src={lupa}></img></div>
                     <input type="text" name="buscador" id="buscador" placeholder="Search city" onChange={e => setCiudadesFiltradas(e.target.value.trim())}></input>
                 </div>
-                {ciudadFiltrada.map(({ name, url, _id }) => {
+                {ciudadFiltrada.map(({ name, url, _id }, i) => {
                     return (
-                        <div className="divCiudad" style={{ backgroundImage: `url('${url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
+                        <div key={i} className="divCiudad" style={{ backgroundImage: `url('${url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
                             <Link to={`/city/${_id}`} style={{ width: "100%" }}><p className="pCiudades">{name}</p></Link>
                         </div>
                     )
                 })}
 
                 {ciudadFiltrada.length === 0 && <p>No results for your search</p>}
+
 
             </div>
         </>

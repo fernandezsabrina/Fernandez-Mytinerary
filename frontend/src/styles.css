@@ -219,7 +219,7 @@ main {
 }
 
 .divCiudad:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
     transition: .75s ease;
 }
@@ -309,18 +309,6 @@ input {
     font-weight: bolder;
 }
 
-.itinerariesDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 20vh;
-    background-color:#894789;
-    border-radius: 20px;
-    text-align: center;
-    color: bisque;
-}
-
 .mundoCity {
     width: 10vw;
 }
@@ -334,4 +322,59 @@ input {
 
 .divRedirect p {
     font-size: 50%;
+}
+
+/* --------itinerarios------- */
+
+.itinerariesDiv {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 40vh;
+    background-color:#894789;
+    border-radius: 20px;
+    text-align: center;
+    color: bisque;
+}
+
+.divLikes {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botonIti {
+    width: 8vw;
+    height: 5vh;
+    text-align: center;
+}
+
+.botonIti p {
+    font-size: 20px;
+}
+
+.divUserIti {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25%;
+    height: 100%;
+}
+
+.divInfoIti {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.userPicIti {
+    width: 60%;
+    height: 60%;
+    background-color: bisque;
+    border-radius: 50%;
 }

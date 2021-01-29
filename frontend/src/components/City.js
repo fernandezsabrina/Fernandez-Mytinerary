@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import world from "../assets/world.png"
+import Itinerary from './Itineraries'
 
 const City = (props) => {
     const [ciudad, setCiudad] = useState({})
@@ -14,6 +15,7 @@ const City = (props) => {
 
     }, [])
 
+
     return (
         <div className="ciudadSin">
             <div className="tituloCiudad"><h1>{ciudad.name}</h1></div>
@@ -21,10 +23,8 @@ const City = (props) => {
             <div className="ciudadUnica" style={{ backgroundImage: `url('${ciudad.url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
 
             </div>
-            <div className="itinerariesDiv">
-                <p>Sorry, we have no itineraries yet...
-                </p>
-            </div>
+            <Itinerary></Itinerary>
+        
             <Link to="/cities">
                 <div className="divRedirect">
                     <img src={world} className="mundoCity"></img>

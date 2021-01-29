@@ -1,5 +1,3 @@
-// crear controladores que va a contener todo lo que tenga que ver con 
-
 const City = require('../models/City')
 
 const cityController = {
