@@ -23,7 +23,7 @@ const City = (props) => {
             <div className="ciudadUnica" style={{ backgroundImage: `url('${ciudad.url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
 
             </div>
-            <Itinerary></Itinerary>
+            <Itinerary ></Itinerary>
         
             <Link to="/cities">
                 <div className="divRedirect">

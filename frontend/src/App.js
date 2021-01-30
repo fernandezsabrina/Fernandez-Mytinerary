@@ -5,19 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 import Cities from './components/Cities'
 import City from './components/City'
-import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import citiesActions from './Redux/Actions/citiesActions';
-import { useEffect } from 'react';
 
-const App =(props) =>{
-
-  useEffect(() => {
-    props.listarCiudades()
-  }, [])
+const App = () => {
 
   return (
-    <> 
+    <>
       <BrowserRouter>
         <Header />
         <Switch>
@@ -32,14 +25,4 @@ const App =(props) =>{
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    cities: state.cities.cities
-  }
-}
-
-const mapDispatchToProps = {
-  listarCiudades: citiesActions.cities
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
