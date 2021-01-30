@@ -3,7 +3,7 @@ import flecha from '../assets/bluearrow.png'
 import foto1 from '../assets/foto1.png'
 import foto2 from '../assets/foto2.png'
 import foto3 from '../assets/foto3.png'
-import { NavLink, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
 

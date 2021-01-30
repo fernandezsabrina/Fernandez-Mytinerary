@@ -11,7 +11,7 @@ router.route('/cities')
 router.route('/city/:id')
     .get(cityController.singleCity)
 
-router.route('/itineraries')
+router.route('/itineraries/:id')
     .get(itineraryController.allItineraries)
     .post(itineraryController.addItinerary)
 
