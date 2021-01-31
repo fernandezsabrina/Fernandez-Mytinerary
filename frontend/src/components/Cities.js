@@ -1,40 +1,20 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import lupa from '../assets/lupa.png'
 import { Spinner } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import citiesActions from '../Redux/Actions/citiesActions';
 
 const Cities = (props) => {
-
-    // const [ciudades, setCiudades] = useState([])
-    // const [ciudadesBuscador, setCiudadesBuscador] = useState('')
-    // const [ciudadFiltrada, setCiudadFiltrada] = useState([])
-    // const [loading, setLoading] = useState(true)
     
     useEffect(() => {
         props.listarCiudades()
     }, [])
 
-    // useEffect(() => {
-    //     setLoading(true)
-    //     fetch('http://localhost:4000/cities')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             setCiudades(data.respuesta)
-    //             setLoading(false)
-    //         })
-    // }, [])
-
-    // useEffect(() => {
-    //     setCiudadFiltrada(
-    //         ciudades.filter(ciudad => {
-    //             return ciudad.name.toLowerCase().indexOf(ciudadesBuscador.toLowerCase()) == 0
-    //         })
-    //     )
-
-    // }, [ciudadesBuscador, ciudades])
-
+    const filtro = e => {
+        const valorFiltro= e.target.value
+        props.filtrarCiudades(valorFiltro)
+    }
 
     return (
         <>
@@ -42,11 +22,11 @@ const Cities = (props) => {
                 <h1 className="citiesTitulo">CITIES</h1>
                 <div className="divBuscador">
                     <div><img src={lupa}></img></div>
-                    <input type="text" name="buscador" id="buscador" placeholder="Search city" onChange={e => (e.target.value.trim())}></input>
+                    <input type="text" name="buscador" id="buscador" placeholder="Search city" onChange={filtro}></input>
                 </div>
-                {props.cities.length > 0 ?
+                {props.ciudadesFiltradas.length > 0 ?
 
-                    props.cities.map(({ name, url, _id }, i) => {
+                    props.ciudadesFiltradas.map(({ name, url, _id }, i) => {
                         return (
                             <div key={i} className="divCiudad" style={{ backgroundImage: `url('${url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
                                 <Link to={`/city/${_id}`} style={{ width: "100%" }}><p className="pCiudades">{name}</p></Link>
@@ -54,7 +34,7 @@ const Cities = (props) => {
                         )
                     })
                     :
-                    props.cities.length === 0 && <p>No results for your search</p>
+                    props.ciudadesFiltradas.length === 0 && <p>No results for your search</p>
                 }
             </div>
         </>
@@ -63,13 +43,15 @@ const Cities = (props) => {
 
 const mapStateToProps = state => {
     return {
-        cities: state.cities.cities
+        cities: state.cities.cities,
+        ciudadesFiltradas: state.cities.ciudadesFiltradas
     }
 }
 
 const mapDispatchToProps = {
 
-    listarCiudades: citiesActions.listarCiudades
+    listarCiudades: citiesActions.listarCiudades,
+    filtrarCiudades: citiesActions.filtrarCiudades
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities)

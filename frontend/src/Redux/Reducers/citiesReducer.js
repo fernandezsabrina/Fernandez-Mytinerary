@@ -1,5 +1,6 @@
 const initialState = {
-    cities: []
+    cities: [],
+    ciudadesFiltradas: []
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -7,12 +8,23 @@ const citiesReducer = (state = initialState, action) => {
         case "ALL_CITIES":
             return {
                 ...state,
-                cities: action.payload
+                cities: action.payload,
+                ciudadesFiltradas: action.payload
             }
-           break
+            break
+        case "FILTER_CITIES":
+            const filtradoCiudades = state.cities.filter(city =>city.name.toLowerCase().indexOf(action.payload.trim().toLowerCase()) == 0)
+            return {
+                ...state,
+                ciudadesFiltradas: filtradoCiudades
+            }
+            break
+
         default:
             return state
     }
+
+
 }
 
 export default citiesReducer
