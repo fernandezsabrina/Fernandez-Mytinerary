@@ -2,16 +2,21 @@ import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import world from "../assets/world.png"
 import Itinerary from './Itineraries'
+import { connect } from 'react-redux'
+import citiesActions from '../Redux/Actions/citiesActions'
+import itinerariesActions from '../Redux/Actions/itineraryActions'
 
 const City = (props) => {
     const [ciudad, setCiudad] = useState({})
 
     useEffect(() => {
-        const id = props.match.params.nombreCiudad
-        fetch('http://localhost:4000/city/' + id)
-            .then(respuesta => respuesta.json())
-            .then(data => setCiudad(data.respuesta))
+        const id = (props.match.params.nombreCiudad)
+        const city = props.cities.filter(city => city._id === id)
+        setCiudad(city[0])
+        props.listarItinerarios(id)
         window.scrollTo(0, 0)
+        console.log(city)
+        console.log(props.itineraries)
 
     }, [])
 
@@ -23,8 +28,19 @@ const City = (props) => {
             <div className="ciudadUnica" style={{ backgroundImage: `url('${ciudad.url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
 
             </div>
-            <Itinerary ></Itinerary>
-        
+            {props.itineraries.length > 0 ?
+                props.itineraries.map(itinerary => {
+                    return <Itinerary itinerary ={itinerary}></Itinerary>
+                })
+
+                :
+                <div className="itinerariesDiv">
+                    <h2>Sorry, we have no itineraries yet...</h2>
+                </div>
+
+            }
+
+
             <Link to="/cities">
                 <div className="divRedirect">
                     <img src={world} className="mundoCity"></img>
@@ -32,10 +48,23 @@ const City = (props) => {
                 </div>
 
             </Link>
-        </div>
+        </div >
 
     )
 
 }
 
-export default City
+const mapStateToProps = state => {
+    return {
+        cities: state.cities.cities,
+        itineraries: state.itinerary.itineraries
+    }
+}
+
+const mapDispatchToProps = {
+
+    listarCiudades: citiesActions.listarCiudades,
+    listarItinerarios: itinerariesActions.listarItinerarios
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(City)

@@ -27,7 +27,7 @@ const itineraryController = {
     },
     
     allItineraries: async (req, res) => {
-        const data = await Itinerary.find()
+        const data = await Itinerary.find({idCity: req.params.id})
         res.json({
             respuesta: data
         })

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import lupa from '../assets/lupa.png'
 import { Spinner } from 'react-bootstrap';
 import { connect } from 'react-redux'

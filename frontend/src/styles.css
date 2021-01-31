@@ -336,22 +336,30 @@ input {
     border-radius: 20px;
     text-align: center;
     color: bisque;
+    margin-bottom: 5vh;
 }
 
 .divLikes {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .botonIti {
-    width: 8vw;
-    height: 5vh;
-    text-align: center;
+    background-color: rgb(255, 228, 251);
+    width: 50vw;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    outline: none;
 }
 
 .botonIti p {
-    font-size: 20px;
+    font-size: 50%;
+    margin-bottom: 0%;
 }
 
 .divUserIti {
@@ -373,8 +381,20 @@ input {
 }
 
 .userPicIti {
-    width: 60%;
-    height: 60%;
+    width: 12vw;
+    height: 25vh;
     background-color: bisque;
     border-radius: 50%;
+}
+
+.itineraryAdds {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.hashtags {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
 }
