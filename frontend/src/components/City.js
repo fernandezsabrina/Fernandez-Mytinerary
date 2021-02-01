@@ -15,42 +15,48 @@ const City = (props) => {
         setCiudad(city[0])
         props.listarItinerarios(id)
         window.scrollTo(0, 0)
-        console.log(city)
-        console.log(props.itineraries)
-
     }, [])
+    if (props.cities.length !== 0) {
 
+        return (
+            <div className="ciudadSin">
+                <div className="tituloCiudad"><h1>{ciudad.name}</h1></div>
 
-    return (
-        <div className="ciudadSin">
-            <div className="tituloCiudad"><h1>{ciudad.name}</h1></div>
+                <div className="ciudadUnica" style={{ backgroundImage: `url('${ciudad.url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
 
-            <div className="ciudadUnica" style={{ backgroundImage: `url('${ciudad.url}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
-
-            </div>
-            {props.itineraries.length > 0 ?
-                props.itineraries.map(itinerary => {
-                    return <Itinerary itinerary ={itinerary}></Itinerary>
-                })
-
-                :
-                <div className="itinerariesDiv">
-                    <h2>Sorry, we have no itineraries yet...</h2>
                 </div>
+                {props.itineraries.length > 0 ?
+                    props.itineraries.map(itinerary => {
+                        return <Itinerary itinerary={itinerary}></Itinerary>
+                    })
 
-            }
+                    :
+                    <div className="noItinerariesDiv">
+                        <h2>Sorry, we have no itineraries yet...</h2>
+                    </div>
+
+                }
 
 
-            <Link to="/cities">
-                <div className="divRedirect">
-                    <img src={world} className="mundoCity"></img>
-                    <p>Go back to cities</p>
-                </div>
+                <Link to="/cities">
+                    <div className="divRedirect">
+                        <img src={world} className="mundoCity"></img>
+                        <p>Go back to cities</p>
+                    </div>
 
-            </Link>
-        </div >
+                </Link>
+            </div >
 
-    )
+        )
+    } else {
+        props.history.push('/cities')
+        return (
+            <>
+            </>
+        )
+    }
+
+
 
 }
 

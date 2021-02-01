@@ -244,7 +244,7 @@ input {
     margin-bottom: 5vw;
     border: none;
     outline: none;
-    width: 15vw;
+    width: 50%;
 }
 
 .divBuscador {
@@ -326,17 +326,32 @@ input {
 
 /* --------itinerarios------- */
 
-.itinerariesDiv {
+.noItinerariesDiv {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
     width: 80%;
-    height: 40vh;
+    height: 30vh;
     background-color:#894789;
     border-radius: 20px;
     text-align: center;
     color: bisque;
     margin-bottom: 5vh;
+    box-shadow: 15px 15px 5px #3f223fb7;
+}
+
+.itinerariesDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    min-height: 45vh;
+    background-color:#894789;
+    border-radius: 20px;
+    text-align: center;
+    color: bisque;
+    margin-bottom: 5vh;
+    box-shadow: 15px 15px 5px #3f223fb7;
 }
 
 .divLikes {
@@ -367,13 +382,13 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 25%;
-    height: 100%;
+    width: 20vw;
+    height: 40vh;
 }
 
 .divInfoIti {
     width: 50%;
-    height: 100%;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -381,8 +396,8 @@ input {
 }
 
 .userPicIti {
-    width: 12vw;
-    height: 25vh;
+    width: 70%;
+    height: 70%;
     background-color: bisque;
     border-radius: 50%;
 }
@@ -394,7 +409,74 @@ input {
 }
 
 .hashtags {
-    justify-content: space-evenly;
+    background-color: rgb(19, 156, 190);
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 5vh;
+    align-items: center;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.contenedorIt {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.visible {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(224, 248, 255);
+    border-radius: 10px;
+    height: 50vh;
+    width: 95%;
+}
+
+.money {
+    color: rgb(31, 204, 152);
+    font-weight: bolder;
+    font-size: 4.5vh;
+}
+
+.activities {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
+    height: 70%;
+    color: rgb(53, 4, 82);
+    font-size: 2vh;
+    font-weight: bolder;
+}
+
+.activity {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 90%;
+}
+
+.activityPic {
+    width: 100%;
+    height: 100%;
+}
+
+.comments {
+    border-radius: 10px;
+    background-color: rgb(224, 248, 255);
+    align-items: center;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(53, 4, 82);
+    font-size: 2vh;
+    font-weight: bolder;
+}
+
+.comments input {
+    width: 80%;
 }

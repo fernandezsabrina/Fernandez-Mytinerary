@@ -9,9 +9,11 @@ const Cities = (props) => {
     
     useEffect(() => {
         props.listarCiudades()
+        window.scrollTo(0, 0)
     }, [])
 
     const filtro = e => {
+
         const valorFiltro= e.target.value
         props.filtrarCiudades(valorFiltro)
     }
