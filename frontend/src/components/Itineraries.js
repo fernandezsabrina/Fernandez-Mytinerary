@@ -1,11 +1,8 @@
 import { useState } from "react"
 import emptyLike from '../assets/emptyLike.png'
 import clock from '../assets/clock.png'
-import money from '../assets/money.png'
-
 
 const Itinerary = ({ itinerary }) => {
-
     const [visible, setVisible] = useState(false)
 
     return (
@@ -54,7 +51,7 @@ const Itinerary = ({ itinerary }) => {
                     </div>
                     <div className="comments">
                         {itinerary.comments.length === 0 && <p>No comments yet...</p>}
-                        <input type="text" name="campo_de_texto" value="You must be logged to create a comment..." readonly="readonly" /> 
+                        <input type="text" name="campo_de_texto" value="You must be logged to create a comment..." readOnly="readOnly" /> 
                     </div>
                 </div>}
             <div>

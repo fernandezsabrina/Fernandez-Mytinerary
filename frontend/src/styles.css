@@ -429,7 +429,7 @@ input {
 .visible {
     display: flex;
     flex-direction: column;
-    background-color: rgb(224, 248, 255);
+    background-color: rgb(255, 247, 233);
     border-radius: 10px;
     height: 50vh;
     width: 95%;
@@ -467,7 +467,7 @@ input {
 
 .comments {
     border-radius: 10px;
-    background-color: rgb(224, 248, 255);
+    background-color: rgb(255, 247, 233);
     align-items: center;
     height: 30%;
     display: flex;

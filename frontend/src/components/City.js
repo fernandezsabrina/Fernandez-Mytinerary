@@ -29,14 +29,11 @@ const City = (props) => {
                     props.itineraries.map(itinerary => {
                         return <Itinerary itinerary={itinerary}></Itinerary>
                     })
-
                     :
                     <div className="noItinerariesDiv">
                         <h2>Sorry, we have no itineraries yet...</h2>
                     </div>
-
                 }
-
 
                 <Link to="/cities">
                     <div className="divRedirect">
@@ -55,9 +52,6 @@ const City = (props) => {
             </>
         )
     }
-
-
-
 }
 
 const mapStateToProps = state => {
