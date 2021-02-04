@@ -240,7 +240,7 @@ a:hover {
     color: rgb(196, 45, 255);
 }
 
-input {
+.inputSearch {
     margin-bottom: 5vw;
     border: none;
     outline: none;
@@ -479,4 +479,60 @@ input {
 
 .comments input {
     width: 80%;
+}
+
+/*-------- formularios-------- */
+
+.containerForm {
+    width: 70vw;
+    height: 100vh;
+    background-color: thistle;
+    margin-bottom: 10vh;
+    border-radius: 30px;
+    background-image: url(../src/assets/backgroundViaje.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divPadre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerForm input, select {
+    text-align: center;
+    background-color: rgba(216, 191, 216, 0.698);
+    border-radius: 20px;
+    margin-bottom: 1.5vw;
+    border: none;
+    outline: none; 
+    height: 5vh;
+    width: 70%;
+}
+
+.containerForm h1 {
+    font-size: 10vh;
+    margin-bottom: 5vh;
+    color: rgb(28, 182, 221);
+    font-weight: bolder;
+    text-shadow: 5px 5px 5px rgba(12, 58, 58, 0.472);
+}
+
+select{
+    font-size: 3.5vh;
+}
+
+.btnForm {
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    background-color:rgb(28, 182, 221);
+    color: rgb(253, 247, 236);
+    padding: 1vw;
+    border-radius: 30px;
+    outline:none
 }

@@ -24,7 +24,7 @@ const Cities = (props) => {
                 <h1 className="citiesTitulo">CITIES</h1>
                 <div className="divBuscador">
                     <div><img src={lupa}></img></div>
-                    <input type="text" name="buscador" id="buscador" placeholder="Search city" onChange={filtro}></input>
+                    <input className="inputSearch" type="text" name="buscador" id="buscador" placeholder="Search city" onChange={filtro}></input>
                 </div>
                 {props.ciudadesFiltradas.length > 0 ?
 
