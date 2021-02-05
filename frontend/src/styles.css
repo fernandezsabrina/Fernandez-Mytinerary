@@ -503,7 +503,7 @@ a:hover {
     align-items: center;
 }
 
-.containerForm input, select {
+.containerForm input, select, .containerLogin input {
     text-align: center;
     background-color: rgba(216, 191, 216, 0.698);
     border-radius: 20px;
@@ -519,7 +519,6 @@ a:hover {
     margin-bottom: 5vh;
     color: rgb(28, 182, 221);
     font-weight: bolder;
-    text-shadow: 5px 5px 5px rgba(12, 58, 58, 0.472);
 }
 
 select{
@@ -535,4 +534,19 @@ select{
     padding: 1vw;
     border-radius: 30px;
     outline:none
+}
+
+.containerLogin {
+
+    width: 70vw;
+    height: 50vh;
+    background-color: thistle;
+    margin-bottom: 10vh;
+    border-radius: 30px;
+    background-image: url(../src/assets/backgroundViaje.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
