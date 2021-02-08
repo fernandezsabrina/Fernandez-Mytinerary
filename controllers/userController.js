@@ -1,8 +1,10 @@
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const userController = {
     signUp: async (req, res) => {
+        console.log(req.body)
         var errores = []
         const { username, name, lastname, password, country, urlpic, email } = req.body
         const userExists = await User.findOne({ username: username })
@@ -23,13 +25,13 @@ const userController = {
                 email
             })
             var newUserSaved = await newUser.save()
-
+            var token = jwt.sign({...newUserSaved}, process.env.SECRET_KEY, {})
         }
         
         return res.json({
             success: errores.length === 0 ? true : false,
             errores: errores,
-            response: newUserSaved
+            response: {token, username: userExists.username, urlpic: userExists.urlpic}
         })
 
     },
@@ -46,7 +48,9 @@ const userController = {
             return res.json({ success: false, mensaje: 'Username or password is invalid' })
         }
 
-        return res.json({ success: true, response: userExists })
+        var token= jwt.sign({...userExists}, process.env.SECRET_KEY, {})
+
+        return res.json({ success: true, response: {token, username: userExists.username, urlpic: userExists.urlpic}})
     }
 }
 

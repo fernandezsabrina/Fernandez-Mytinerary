@@ -16,19 +16,19 @@ const SignUp = (props) => {
         })
 
     }
+    
     const validarUser = async e => {
         e.preventDefault()
-        console.log(nuevoUsuario)
 
-        if (nuevoUsuario.name === '' || nuevoUsuario.username === '' || nuevoUsuario.lastname === ''
-            || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' || nuevoUsuario.country === '') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'All fields are required!',
-            })
-            return false
-        }
+        // if (nuevoUsuario.name === '' || nuevoUsuario.username === '' || nuevoUsuario.lastname === ''
+        //     || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' || nuevoUsuario.country === '') {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Oops...',
+        //         text: 'All fields are required!',
+        //     })
+        //     return false
+        // }
 
         setErrores([])
         const respuesta = await props.newUser(nuevoUsuario)

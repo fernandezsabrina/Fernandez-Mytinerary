@@ -28,7 +28,7 @@ const App = (props) => {
       <Redirect to="/" />
     </Switch>
   }
-
+  console.log("estado actual de redux:",props)
   return (
     <>
       <BrowserRouter>

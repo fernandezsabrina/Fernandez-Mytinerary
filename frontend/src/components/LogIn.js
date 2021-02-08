@@ -16,7 +16,6 @@ const LogIn = (props) => {
         })
 
     }
-
     const validarUser = async e => {
         e.preventDefault()
         if (usuarioALoguear.username === '' || usuarioALoguear.password === '') {
@@ -34,7 +33,6 @@ const LogIn = (props) => {
         }
 
     }
-    console.log(props)
     return (
         <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="containerLogin">

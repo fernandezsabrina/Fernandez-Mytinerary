@@ -7,7 +7,7 @@ import authActions from '../Redux/Actions/authActions'
 const Header = (props) => {
     if (props.loggedUser) {
         var links = <>
-            <p onClick={() => props.logoutUser()}>Log Out</p>
+            <p onClick={() => props.logoutUser()}>Log Out, {props.loggedUser.username}</p>
         </>
     } else {
         var links = <>
@@ -18,8 +18,12 @@ const Header = (props) => {
     return (
         <>
             <header>
+                {props.loggedUser ?
+                    <div><img className="fotoUsuario" src={props.loggedUser.urlpic}></img></div>
+                    :
+                    <div><img className="fotoUsuario" src={imagen}></img></div>
+                }
 
-                <div><img className="fotoUsuario" src={imagen}></img></div>
                 <nav>
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/cities">Cities</NavLink>
