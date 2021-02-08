@@ -23,6 +23,23 @@ header {
 
 .fotoUsuario {
    width: 5vw;
+   height: 10vh;
+   border-radius: 80px;
+}
+
+.fotoNoUsuario {
+    width: 5vw;
+}
+
+.centradoUser {
+    display: flex;
+    align-items: center;
+}
+
+.centradoUser p {
+    font-size: 3vh;
+    margin-bottom: 0%;
+    margin-left: 1vw;
 }
 
 .fotoLogo {
