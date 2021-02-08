@@ -5,6 +5,8 @@ const cityController = require('../controllers/cityController')
 const itineraryController = require('../controllers/itineraryController')
 const userController = require('../controllers/userController')
 const validator = require('../controllers/validator')
+// const passport = require('passport')
+// require('./config/passport')
 
 router.route('/cities')
     .get(cityController.allCities)

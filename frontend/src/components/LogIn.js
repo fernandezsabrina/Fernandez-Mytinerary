@@ -19,7 +19,11 @@ const LogIn = (props) => {
     const validarUser = async e => {
         e.preventDefault()
         if (usuarioALoguear.username === '' || usuarioALoguear.password === '') {
-            alert("all fields are required")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'All fields are required!',
+            })
             return false
         }
         setErrores([])
@@ -29,7 +33,11 @@ const LogIn = (props) => {
         if (respuesta && !respuesta.success) {
             setErrores([respuesta.mensaje])
         } else {
-            alert("welcome")
+            Swal.fire(
+                'Great!',
+                'Welcome',
+                'success'
+            )
         }
 
     }
