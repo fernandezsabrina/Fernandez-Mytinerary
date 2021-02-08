@@ -1,9 +1,20 @@
 import imagen from '../assets/userblue.png'
 import logo from '../assets/logomytinerary.png'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import authActions from '../Redux/Actions/authActions'
 
-const Header = () => {
-
+const Header = (props) => {
+    if (props.loggedUser) {
+        var links = <>
+            <p onClick={() => props.logoutUser()}>Log Out</p>
+        </>
+    } else {
+        var links = <>
+            <NavLink to="/signup">Sign Up</NavLink>
+            <NavLink to="/login">Log In</NavLink>
+        </>
+    }
     return (
         <>
             <header>
@@ -12,8 +23,8 @@ const Header = () => {
                 <nav>
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/cities">Cities</NavLink>
-                    <NavLink to="/signup">Sign Up</NavLink>
-                    <NavLink to="/login">Log In</NavLink>
+                    {links}
+
                 </nav>
 
             </header>
@@ -27,5 +38,14 @@ const Header = () => {
         </>
     )
 }
+const mapStateToProps = state => {
+    return {
+        loggedUser: state.auth.loggedUser
+    }
+}
 
-export default Header
+const mapDispatchToProps = {
+    logoutUser: authActions.logoutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

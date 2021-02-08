@@ -8,25 +8,43 @@ import City from './components/City'
 import SignUp from './components/SignUp'
 import LogIn from './components/LogIn'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
 
-const App = () => {
+const App = (props) => {
+  if (props.loggedUser) {
+    var routes = <Switch>
+      <Route exact path="/" component={Main} />
+      <Route path="/cities" component={Cities} />
+      <Route path="/city/:nombreCiudad" component={City} />
+      <Redirect to="/" />
+    </Switch>
+  } else {
+    var routes = <Switch>
+      <Route exact path="/" component={Main} />
+      <Route path="/cities" component={Cities} />
+      <Route path="/city/:nombreCiudad" component={City} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/login" component={LogIn} />
+      <Redirect to="/" />
+    </Switch>
+  }
 
   return (
     <>
       <BrowserRouter>
         <Header />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/cities" component={Cities} />
-          <Route path="/city/:nombreCiudad" component={City} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={LogIn} />
-          <Redirect to="/" />
-        </Switch>
+        {routes}
         <Footer />
       </BrowserRouter>
     </>
   );
 }
 
-export default App
+const mapStateToProps = state => {
+  return {
+    loggedUser: state.auth.loggedUser
+  }
+}
+
+
+export default connect(mapStateToProps)(App)

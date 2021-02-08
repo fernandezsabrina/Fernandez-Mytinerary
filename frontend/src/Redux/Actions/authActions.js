@@ -4,8 +4,30 @@ const authActions = {
     newUser: (nuevoUsuario) => {
         return async (dispatch, getState) => {
             const respuesta = await axios.post('http://localhost:4000/user/signup', nuevoUsuario)
-            console.log(respuesta)
-            dispatch({type:'NEW_USER', payload: respuesta.data})
+
+            if (!respuesta.data.success) {
+                return respuesta.data
+            }
+            dispatch({ type: 'LOG_USER', payload: respuesta.data })
+        }
+    },
+    logoutUser: () => {
+        return (dispatch, getState) => {
+            dispatch({type: 'LOG_OUT_USER'})
+        }
+    },
+
+    loginUser: (user) => {
+        
+        return async (dispatch, getState) => {
+            const respuesta = await axios.post('http://localhost:4000/user/login', user)
+            
+            if (!respuesta.data.success) {
+               
+                return respuesta.data
+     
+            }
+            dispatch({type: 'LOG_USER', payload: respuesta.data})
         }
     }
 }

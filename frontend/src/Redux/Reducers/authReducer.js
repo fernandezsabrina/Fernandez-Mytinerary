@@ -4,14 +4,15 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'NEW_USER':
-            if(!action.payload.success) {
-                alert("error")
-                return state
-            }
+        case 'LOG_USER':
             return {
                 ...state,
                 loggedUser: action.payload.response
+            }
+        case 'LOG_OUT_USER':
+            return {
+                ...state,
+                loggedUser: null
             }
         default:
             return state
