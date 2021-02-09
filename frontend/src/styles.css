@@ -85,6 +85,14 @@ nav .active {
     font-weight: bold;
 }
 
+.logoutLink {
+    margin-left: 1vw;
+    font-weight: bolder;
+    color: rgb(255, 177, 242);
+    text-decoration: none;
+    cursor: pointer;
+}
+
 main {
     display: flex;
     flex-direction: column;

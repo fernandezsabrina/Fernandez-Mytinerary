@@ -5,12 +5,12 @@ const cityController = require('../controllers/cityController')
 const itineraryController = require('../controllers/itineraryController')
 const userController = require('../controllers/userController')
 const validator = require('../controllers/validator')
-// const passport = require('passport')
-// require('./config/passport')
+const passport = require('passport')
+require('../config/passport')
 
 router.route('/cities')
     .get(cityController.allCities)
-    .post(cityController.addCity)
+    .post(passport.authenticate('jwt', {session: false}), cityController.addCity)
 
 router.route('/city/:id')
     .get(cityController.singleCity)
@@ -25,5 +25,7 @@ router.route('/user/signup')
 router.route('/user/login')
     .post(userController.logIn)
 
+router.route('/user/ls')
+    .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
 
 module.exports = router

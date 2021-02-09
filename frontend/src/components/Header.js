@@ -7,7 +7,7 @@ import authActions from '../Redux/Actions/authActions'
 const Header = (props) => {
     if (props.loggedUser) {
         var links = <>
-            <p onClick={() => props.logoutUser()}>Log Out</p>
+            <p className="logoutLink" onClick={() => props.logoutUser()}>Log Out</p>
         </>
     } else {
         var links = <>

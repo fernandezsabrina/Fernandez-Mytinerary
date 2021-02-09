@@ -11,7 +11,7 @@ const cityController = {
                 return res.json({ success: true, respuesta: cityAGrabar })
             })
             .catch(error => {
-                return res.json({ success: false, error: error })
+                return res.json({ success: false, error})
             })
     },
     allCities: async (req, res) => {
