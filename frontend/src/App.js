@@ -7,6 +7,7 @@ import Cities from './components/Cities'
 import City from './components/City'
 import SignUp from './components/SignUp'
 import LogIn from './components/LogIn'
+import NewCity from './components/NewCity'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import authActions from './Redux/Actions/authActions';
@@ -19,6 +20,7 @@ const App = (props) => {
       <Route exact path="/" component={Main} />
       <Route path="/cities" component={Cities} />
       <Route path="/city/:nombreCiudad" component={City} />
+      <Route path="/newcity" component={NewCity} />
       <Redirect to="/" />
     </Switch>
   } else if (localStorage.getItem('token')) {

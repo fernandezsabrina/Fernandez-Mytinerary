@@ -10,9 +10,14 @@ const citiesActions = {
 
     filtrarCiudades: (filtro) => {
         return (dispatch, getState) => {
-            dispatch({
-                type: "FILTER_CITIES", payload: filtro
-            })
+            dispatch({type: "FILTER_CITIES", payload: filtro})
+        }
+    },
+
+    nuevaCiudad: () => {
+        return async (dispatch, getState) => {
+            const data = await axios.post('http://localhost:4000/cities')
+            dispatch({ type: "NEW_CITY", payload: data.data.respuesta})
         }
     }
 }

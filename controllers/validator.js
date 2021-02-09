@@ -20,6 +20,21 @@ const validator = {
         } else {
             res.json({success: false, errores: ['Error']})
         }
+    },
+
+    validNewCity: (req, res, next) => {
+        const schema = Joi.object({
+            name:Joi.string().trim().alphanum().required(),
+            url:Joi.string().trim().uri().required()
+        })
+        
+        const validation = schema.validate(req.body, {abortEarly: false})
+
+        if (!validation.error) {
+            next()
+        } else {
+            res.json({success: false, errores: ['Error']})
+        }
     }
 }
 

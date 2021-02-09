@@ -21,7 +21,9 @@ const SignUp = (props) => {
     const validarUser = async e => {
         e.preventDefault()
         if (nuevoUsuario.name === '' || nuevoUsuario.username === '' || nuevoUsuario.lastname === ''
-            || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' || nuevoUsuario.country === '') {
+            || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' 
+            || nuevoUsuario.country === '' || !nuevoUsuario.name || !nuevoUsuario.username || !nuevoUsuario.lastname
+             || !nuevoUsuario.email || !nuevoUsuario.password || !nuevoUsuario.country || !nuevoUsuario.urlpic) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -62,8 +64,8 @@ const SignUp = (props) => {
                 lastname: response.profileObj.familyName,
                 password: response.profileObj.googleId,
                 country: "United States",
-                urlpic:response.profileObj.imageUrl,
-                email:response.profileObj.email
+                urlpic: response.profileObj.imageUrl,
+                email: response.profileObj.email
             })
             if (respuesta && !respuesta.success) {
                 setErrores(respuesta.errores)

@@ -1,7 +1,13 @@
 const City = require('../models/City')
 
 const cityController = {
-    addCity: (req, res) => {
+    addCity: async (req, res) => {
+        var errores = []
+        const { name, url } = req.body
+        const cityExists = await City.findOne({ name: name })
+        if (cityExists) {
+            errores.push('City already exists')
+        }
         const cityAGrabar = new City({
             name: req.body.name,
             url: req.body.url
@@ -10,8 +16,8 @@ const cityController = {
             .then(cityAGrabar => {
                 return res.json({ success: true, respuesta: cityAGrabar })
             })
-            .catch(error => {
-                return res.json({ success: false, error})
+            .catch(errores => {
+                return res.json({ success: false, errores})
             })
     },
     allCities: async (req, res) => {

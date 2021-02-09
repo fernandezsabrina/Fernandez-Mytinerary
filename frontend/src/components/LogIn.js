@@ -19,7 +19,7 @@ const LogIn = (props) => {
     }
     const validarUser = async e => {
         e.preventDefault()
-        if (usuarioALoguear.username === '' || usuarioALoguear.password === '') {
+        if (usuarioALoguear.username === '' || usuarioALoguear.password === '' || !usuarioALoguear.username || !usuarioALoguear.password) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
