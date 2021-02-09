@@ -31,7 +31,7 @@ const userController = {
         return res.json({
             success: errores.length === 0 ? true : false,
             errores: errores,
-            response: {token, username: userExists.username, urlpic: userExists.urlpic}
+            response: errores.length === 0 && {token, username: userExists.username, urlpic: userExists.urlpic}
         })
 
     },

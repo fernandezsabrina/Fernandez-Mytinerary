@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import { useState } from "react"
 import authActions from "../Redux/Actions/authActions"
 import Swal from 'sweetalert2'
+import GoogleLogin from 'react-google-login';
 
 const SignUp = (props) => {
     const [nuevoUsuario, setNuevoUsuario] = useState({})
@@ -16,19 +17,18 @@ const SignUp = (props) => {
         })
 
     }
-    
+
     const validarUser = async e => {
         e.preventDefault()
-
-        // if (nuevoUsuario.name === '' || nuevoUsuario.username === '' || nuevoUsuario.lastname === ''
-        //     || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' || nuevoUsuario.country === '') {
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Oops...',
-        //         text: 'All fields are required!',
-        //     })
-        //     return false
-        // }
+        if (nuevoUsuario.name === '' || nuevoUsuario.username === '' || nuevoUsuario.lastname === ''
+            || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' || nuevoUsuario.country === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'All fields are required!',
+            })
+            return false
+        }
 
         setErrores([])
         const respuesta = await props.newUser(nuevoUsuario)
@@ -48,7 +48,34 @@ const SignUp = (props) => {
     const paises = [
         "Argentina", "México", "Brasil", "United States", "Spain", "Canada", "United Kingdom", "Japan", "Germany", "China", "France", "Italy", "New Zealand"
     ]
-
+    const responseGoogle = async (response) => {
+        if (response.error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong...',
+            })
+        } else {
+            const respuesta = await props.newUser({
+                username: response.profileObj.givenName,
+                name: response.profileObj.givenName,
+                lastname: response.profileObj.familyName,
+                password: response.profileObj.googleId,
+                country: "United States",
+                urlpic:response.profileObj.imageUrl,
+                email:response.profileObj.email
+            })
+            if (respuesta && !respuesta.success) {
+                setErrores(respuesta.errores)
+            } else {
+                Swal.fire(
+                    'Great!',
+                    'New account created',
+                    'success'
+                )
+            }
+        }
+    }
     return (
         <div className="divPadre">
             <form className="containerForm">
@@ -68,6 +95,13 @@ const SignUp = (props) => {
                     })}
                 </select>
                 <button className="btnForm" onClick={validarUser}>Create Account</button>
+                <GoogleLogin
+                    clientId="372763810833-boon7d6mri0bq178iqb3ar61r89qsmtd.apps.googleusercontent.com"
+                    buttonText="Create Account with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
                 <div className="errores">
                     {errores.map(error => {
                         return (<h2>{error}</h2>)
