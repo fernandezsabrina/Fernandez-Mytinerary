@@ -506,6 +506,11 @@ a:hover {
     width: 80%;
 }
 
+.commentBox {
+    width: 90%;
+    height: 100%;
+    background-color: red;
+}
 /*-------- formularios-------- */
 
 .containerForm {

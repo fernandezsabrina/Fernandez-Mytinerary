@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userController = {
     signUp: async (req, res) => {
+
         var errores = []
         const { username, name, lastname, password, country, urlpic, email } = req.body
         const userExists = await User.findOne({ username: username })
@@ -31,7 +32,9 @@ const userController = {
             success: errores.length === 0 ? true : false,
             errores: errores,
             response: errores.length === 0 && {token, username: userExists.username, urlpic: userExists.urlpic}
+            
         })
+        
 
     },
 

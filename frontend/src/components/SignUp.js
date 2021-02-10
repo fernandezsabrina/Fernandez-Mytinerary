@@ -19,11 +19,12 @@ const SignUp = (props) => {
     }
 
     const validarUser = async e => {
+        
         e.preventDefault()
         if (nuevoUsuario.name === '' || nuevoUsuario.username === '' || nuevoUsuario.lastname === ''
-            || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === '' 
+            || nuevoUsuario.email === '' || nuevoUsuario.urlpic === '' || nuevoUsuario.password === ''
             || nuevoUsuario.country === '' || !nuevoUsuario.name || !nuevoUsuario.username || !nuevoUsuario.lastname
-             || !nuevoUsuario.email || !nuevoUsuario.password || !nuevoUsuario.country || !nuevoUsuario.urlpic) {
+            || !nuevoUsuario.email || !nuevoUsuario.password || !nuevoUsuario.country || !nuevoUsuario.urlpic) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -34,9 +35,11 @@ const SignUp = (props) => {
 
         setErrores([])
         const respuesta = await props.newUser(nuevoUsuario)
+        console.log(respuesta)
         if (respuesta && !respuesta.success) {
             setErrores(respuesta.errores)
         } else {
+            
             Swal.fire(
                 'Great!',
                 'New account created',
@@ -62,7 +65,6 @@ const SignUp = (props) => {
                 name: response.profileObj.givenName,
                 lastname: response.profileObj.familyName,
                 password: response.profileObj.googleId,
-                country: "United States",
                 urlpic: response.profileObj.imageUrl,
                 email: response.profileObj.email
             })

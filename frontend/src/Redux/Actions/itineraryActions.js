@@ -8,6 +8,13 @@ const itinerariesActions = {
         }
     },
 
+    crearComentario: (comentario) => {
+        return async (dispatch, getState) => {
+            const data = await axios.post('http://localhost:4000/comments', comentario)
+            dispatch({ type: "CREATE_COMMENT", payload: data.data.respuesta })
+        }
+    }
+
 }
 
 export default itinerariesActions

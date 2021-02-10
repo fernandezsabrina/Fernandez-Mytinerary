@@ -5,10 +5,10 @@ const validator = {
         
         const schema = Joi.object({
             username: Joi.string().trim().alphanum().required(),
-            password:Joi.string().trim().alphanum().required().pattern(/^[a-zA-Z0-9]{6,20}$/),
+            password:Joi.string().trim().alphanum().required().pattern(/^[a-zA-Z0-9]{6,30}$/),
             name:Joi.string().trim().alphanum().required(),
             lastname:Joi.string().trim().alphanum().required(),
-            country:Joi.string().trim().required(),
+            country:Joi.string().trim(),
             urlpic:Joi.string().trim().uri().required(),
             email:Joi.string().trim().required().email({tlds: {allow: false}})
         })
@@ -21,7 +21,7 @@ const validator = {
             res.json({success: false, errores: ['Error']})
         }
     },
-
+ 
     validNewCity: (req, res, next) => {
         const schema = Joi.object({
             name:Joi.string().trim().alphanum().required(),

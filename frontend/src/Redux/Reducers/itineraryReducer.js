@@ -1,5 +1,6 @@
 const initialState = {
-    itineraries: []
+    itineraries: [],
+    comment: {}
 }
 
 const itineraryReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const itineraryReducer = (state = initialState, action) => {
                 itineraries: action.payload
             }
             break
+        case "CREATE_COMMENT":
+            return {
+                ...state,
+                comment: action.payload
+            }
         default:
             return state
     }

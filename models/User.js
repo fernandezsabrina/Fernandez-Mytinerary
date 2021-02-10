@@ -1,4 +1,3 @@
-const { string } = require('joi')
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
@@ -8,7 +7,7 @@ const userSchema = new mongoose.Schema({
     lastname: String,
     email: String,
     urlpic: String,
-    country: String
+    country: { type: String, default: "Canada" }
 })
 
 const User = mongoose.model('user', userSchema)

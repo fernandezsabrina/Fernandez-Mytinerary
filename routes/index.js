@@ -19,6 +19,10 @@ router.route('/itineraries/:id')
     .get(itineraryController.allItineraries)
     .post(itineraryController.addItinerary)
 
+router.route('/comments')
+    .get(itineraryController.getComment)
+    .post(itineraryController.addComment)
+
 router.route('/user/signup')
     .post(validator.validNewUser, userController.signUp)
 
@@ -26,6 +30,6 @@ router.route('/user/login')
     .post(userController.logIn)
 
 router.route('/user/ls')
-    .post(passport.authenticate('jwt', {session: false}), userController.logFromLS)
+    .post(passport.authenticate('jwt', { session: false }), userController.logFromLS)
 
 module.exports = router

@@ -34,6 +34,7 @@ const itineraryController = {
     },
 
     addComment: (req, res) => {
+        
 
     },
 
@@ -42,7 +43,11 @@ const itineraryController = {
     },
 
     deleteComment: (req, res) => {
-        
+
+    },
+
+    getComment: (req, res) => {
+
     }
 }
 
