@@ -8,9 +8,10 @@ const itinerariesActions = {
         }
     },
 
-    crearComentario: (comentario) => {
+    crearComentario: (id, url, comentario) => {
+        console.log(id, url, comentario)
         return async (dispatch, getState) => {
-            const data = await axios.post('http://localhost:4000/comments', comentario)
+            const data = await axios.post('http://localhost:4000/comments', {id, url, comentario})
             dispatch({ type: "CREATE_COMMENT", payload: data.data.respuesta })
         }
     }

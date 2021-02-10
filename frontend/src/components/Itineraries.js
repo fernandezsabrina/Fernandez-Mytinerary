@@ -3,10 +3,50 @@ import { connect } from 'react-redux'
 import itinerariesActions from '../Redux/Actions/itineraryActions'
 import emptyLike from '../assets/emptyLike.png'
 import clock from '../assets/clock.png'
+import Swal from 'sweetalert2'
 
 const Itinerary = (props) => {
     console.log(props)
     const [visible, setVisible] = useState(false)
+    const [newComment, setNewComment] = useState({})
+
+    const leerInput = e => {
+        const valor = e.target.value
+        const campo = e.target.name
+        setNewComment({
+            ...newComment,
+            [campo]: valor
+        })
+
+    }
+
+    const validarComment = async e => {
+        e.preventDefault()
+        if (newComment.comment === '' || !newComment.comment) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "You can't send your comment empty!",
+            })
+            return false
+        }
+        const username = props.loggedUser.username
+        const urlpic = props.loggedUser.urlpic
+
+        const respuesta = await props.crearComentario(username, urlpic, newComment)
+        console.log(respuesta)
+        if (respuesta && !respuesta.success) {
+
+        } else {
+
+            Swal.fire(
+                'Great!',
+                'New account created',
+                'success'
+            )
+        }
+
+    }
 
     return (
         <div className="itinerariesDiv">
@@ -56,9 +96,14 @@ const Itinerary = (props) => {
                         {props.itinerary.comments.length === 0 ? <p>No comments yet...</p>
                             :
                             <div className="commentBox"></div>}
-                        {props.loggedUser ? <input type="text" name="comment" placeholder="Write your comment here..."></input>
+                        {props.loggedUser ?
+                            <>
+                                <input type="text" name="comment" placeholder="Write your comment here..." onChange={leerInput}></input>
+                                <button className="btnForm" onClick={validarComment}>Send</button>
+                            </>
                             :
-                            <input type="text" name="campo_de_texto" value="You must be logged to create a comment..." readOnly="readOnly" />}
+                            <input type="text" name="campo_de_texto" value="You must be logged to create a comment..." readOnly="readOnly" />
+                        }
 
                     </div>
                 </div>}
