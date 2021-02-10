@@ -14,9 +14,9 @@ const citiesActions = {
         }
     },
 
-    nuevaCiudad: () => {
+    nuevaCiudad: (nuevaCiudad) => {
         return async (dispatch, getState) => {
-            const data = await axios.post('http://localhost:4000/cities')
+            const data = await axios.post('http://localhost:4000/cities', nuevaCiudad)
             dispatch({ type: "NEW_CITY", payload: data.data.respuesta})
         }
     }

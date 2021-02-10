@@ -25,12 +25,24 @@ const itineraryController = {
                 return res.json({ success: false, error: error })
             })
     },
-    
+
     allItineraries: async (req, res) => {
-        const data = await Itinerary.find({idCity: req.params.id})
+        const data = await Itinerary.find({ idCity: req.params.id })
         res.json({
             respuesta: data
         })
+    },
+
+    addComment: (req, res) => {
+
+    },
+
+    modifyComment: (req, res) => {
+
+    },
+
+    deleteComment: (req, res) => {
+        
     }
 }
 

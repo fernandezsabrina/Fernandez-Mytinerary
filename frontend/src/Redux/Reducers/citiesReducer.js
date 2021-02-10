@@ -24,7 +24,7 @@ const citiesReducer = (state = initialState, action) => {
         case "NEW_CITY":
             return {
                 ...state,
-                nuevaCiudad: ""
+                nuevaCiudad: action.payload
             }
             break
 

@@ -27,7 +27,7 @@ const validator = {
             name:Joi.string().trim().alphanum().required(),
             url:Joi.string().trim().uri().required()
         })
-        
+
         const validation = schema.validate(req.body, {abortEarly: false})
 
         if (!validation.error) {

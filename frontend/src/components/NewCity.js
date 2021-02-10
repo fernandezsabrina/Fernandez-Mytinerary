@@ -29,7 +29,7 @@ const NewCity = (props) => {
         }
 
         setErrores([])
-        const respuesta = await props.newUser(nuevaCiudad)
+        const respuesta = await props.nuevaCiudad(nuevaCiudad)
         if (respuesta && !respuesta.success) {
             setErrores(respuesta.errores)
         } else {
@@ -39,7 +39,7 @@ const NewCity = (props) => {
                 'success'
             )
         }
-
+        
     }
 
     return (
@@ -66,7 +66,7 @@ const NewCity = (props) => {
 const mapStateToProps = state => {
     return {
         loggedUser: state.auth.loggedUser,
-        newCity : state.cities.nuevaCiudad
+        newCity: state.cities.nuevaCiudad
     }
 }
 

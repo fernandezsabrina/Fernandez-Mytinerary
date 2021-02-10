@@ -8,10 +8,7 @@ const cityController = {
         if (cityExists) {
             errores.push('City already exists')
         }
-        const cityAGrabar = new City({
-            name: req.body.name,
-            url: req.body.url
-        })
+        const cityAGrabar = new City({name,url})
         cityAGrabar.save()
             .then(cityAGrabar => {
                 return res.json({ success: true, respuesta: cityAGrabar })

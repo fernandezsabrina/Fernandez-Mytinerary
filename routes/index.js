@@ -10,7 +10,7 @@ require('../config/passport')
 
 router.route('/cities')
     .get(cityController.allCities)
-    .post(passport.authenticate('jwt', {session: false}), validator.validNewCity, cityController.addCity)
+    .post(validator.validNewCity, cityController.addCity)
 
 router.route('/city/:id')
     .get(cityController.singleCity)

@@ -44,7 +44,6 @@ const SignUp = (props) => {
             )
         }
 
-
     }
 
     const paises = [
