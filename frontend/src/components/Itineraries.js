@@ -1,23 +1,26 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { connect } from 'react-redux'
 import itinerariesActions from '../Redux/Actions/itineraryActions'
 import emptyLike from '../assets/emptyLike.png'
+import fullLike from '../assets/fullLike.png'
 import clock from '../assets/clock.png'
 import Swal from 'sweetalert2'
+import Comments from './Comments'
 
 const Itinerary = (props) => {
-    console.log(props)
     const [visible, setVisible] = useState(false)
     const [newComment, setNewComment] = useState({})
+    const [liked, setLiked] = useState(false)
 
     const leerInput = e => {
         const valor = e.target.value
         const campo = e.target.name
         setNewComment({
             ...newComment,
-            [campo]: valor
+            [campo]: valor,
+            idIt: props.itinerary._id,
+            idUser: props.loggedUser.id
         })
-
     }
 
     const validarComment = async e => {
@@ -30,20 +33,28 @@ const Itinerary = (props) => {
             })
             return false
         }
-        const username = props.loggedUser.username
-        const urlpic = props.loggedUser.urlpic
 
-        const respuesta = await props.crearComentario(username, urlpic, newComment)
-        console.log(respuesta)
+        const respuesta = await props.crearComentario(newComment)
         if (respuesta && !respuesta.success) {
 
         } else {
 
             Swal.fire(
                 'Great!',
-                'New account created',
+                'You sent a comment!',
                 'success'
             )
+        }
+
+    }
+
+    const likear = e => {
+        if (!props.loggedUser) {
+            alert("You must be logged to like an itinerary")
+        } else if (!liked) {
+            setLiked(true)
+        } else {
+            setLiked(false)
         }
 
     }
@@ -59,7 +70,13 @@ const Itinerary = (props) => {
                     <div><h1>{props.itinerary.title}</h1></div>
                     <div className="divLikes">
                         <div className="itineraryAdds">
-                            <div><img src={emptyLike} style={{ width: "2.5vw", marginBottom: "1vh" }}></img></div>
+                            {!liked ?
+                                <div><img src={emptyLike} style={{ width: "2.5vw", marginBottom: "1vh" }} onClick={likear}></img></div>
+                                :
+                                <div><img src={fullLike} style={{ width: "2.5vw", marginBottom: "1vh" }} onClick={likear}></img></div>
+                            }
+
+
                             <h4>{props.itinerary.likes}</h4>
                         </div>
                         <div className="itineraryAdds">
@@ -95,12 +112,18 @@ const Itinerary = (props) => {
                     <div className="comments">
                         {props.itinerary.comments.length === 0 ? <p>No comments yet...</p>
                             :
-                            <div className="commentBox"></div>}
+                            <div className="commentBox">
+                                {props.itinerary.comments.map(comentario => {
+                                    return(
+                                        <Comments comentario={comentario}></Comments>
+                                    )
+                                })}
+                            </div>}
                         {props.loggedUser ?
-                            <>
+                            <div style={{ display: "flex", width: "100%", justifyContent: "space-evenly" }}>
                                 <input type="text" name="comment" placeholder="Write your comment here..." onChange={leerInput}></input>
                                 <button className="btnForm" onClick={validarComment}>Send</button>
-                            </>
+                            </div>
                             :
                             <input type="text" name="campo_de_texto" value="You must be logged to create a comment..." readOnly="readOnly" />
                         }
@@ -116,7 +139,8 @@ const Itinerary = (props) => {
 
 const mapStateToProps = state => {
     return {
-        loggedUser: state.auth.loggedUser
+        loggedUser: state.auth.loggedUser,
+        comment: state.itinerary.comment
     }
 }
 

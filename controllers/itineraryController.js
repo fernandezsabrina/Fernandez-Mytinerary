@@ -1,4 +1,5 @@
 const Itinerary = require('../models/Itinerary')
+const User = require('../models/User')
 
 const itineraryController = {
     addItinerary: (req, res) => {
@@ -28,13 +29,24 @@ const itineraryController = {
 
     allItineraries: async (req, res) => {
         const data = await Itinerary.find({ idCity: req.params.id })
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'userID',
+                    model: 'user'
+                }
+            })
         res.json({
             respuesta: data
         })
     },
 
-    addComment: (req, res) => {
-        
+    addComment: async (req, res) => {
+        console.log(req.body)
+        const { idIt, idUser, comment } = req.body
+        const comentario = await Itinerary.findOneAndUpdate({ _id: idIt }, { $push: { 'comments': { userID: idUser, comment: comment } } }, { new: true })
+        console.log(comentario)
+        res.json({ success: true, respuesta: comentario })
 
     },
 

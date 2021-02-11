@@ -31,11 +31,9 @@ const userController = {
         return res.json({
             success: errores.length === 0 ? true : false,
             errores: errores,
-            response: errores.length === 0 && {token, username: userExists.username, urlpic: userExists.urlpic}
-            
+            response: errores.length === 0 && {token, username: newUser.username, urlpic: newUser.urlpic, id: newUser._id}
         })
         
-
     },
 
     logIn: async (req, res) => {
@@ -52,11 +50,11 @@ const userController = {
 
         var token= jwt.sign({...userExists}, process.env.SECRET_KEY, {})
 
-        return res.json({ success: true, response: {token, username: userExists.username, urlpic: userExists.urlpic}})
+        return res.json({ success: true, response: {token, username: userExists.username, urlpic: userExists.urlpic, id: userExists._id}})
     },
 
     logFromLS: (req, res) => {
-        return res.json({ success: true, response: {token: req.body.token, username: req.user.username, urlpic: req.user.urlpic}})
+        return res.json({ success: true, response: {token: req.body.token, username: req.user.username, urlpic: req.user.urlpic, id: req.user._id}})
     }
 }
 

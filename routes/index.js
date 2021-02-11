@@ -21,7 +21,7 @@ router.route('/itineraries/:id')
 
 router.route('/comments')
     .get(itineraryController.getComment)
-    .post(itineraryController.addComment)
+    .put(itineraryController.addComment)
 
 router.route('/user/signup')
     .post(validator.validNewUser, userController.signUp)

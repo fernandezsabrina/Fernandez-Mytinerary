@@ -35,7 +35,6 @@ const SignUp = (props) => {
 
         setErrores([])
         const respuesta = await props.newUser(nuevoUsuario)
-        console.log(respuesta)
         if (respuesta && !respuesta.success) {
             setErrores(respuesta.errores)
         } else {

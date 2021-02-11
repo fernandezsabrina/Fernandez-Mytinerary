@@ -3,10 +3,8 @@ import Swal from 'sweetalert2'
 
 const authActions = {
     newUser: (nuevoUsuario) => {
-        console.log(nuevoUsuario)
         return async (dispatch, getState) => {
             const respuesta = await axios.post('http://localhost:4000/user/signup', nuevoUsuario)
-            console.log(respuesta)
             if (!respuesta.data.success) {
                 return respuesta.data
             }
