@@ -42,10 +42,8 @@ const itineraryController = {
     },
 
     addComment: async (req, res) => {
-        console.log(req.body)
         const { idIt, idUser, comment } = req.body
         const comentario = await Itinerary.findOneAndUpdate({ _id: idIt }, { $push: { 'comments': { userID: idUser, comment: comment } } }, { new: true })
-        console.log(comentario)
         res.json({ success: true, respuesta: comentario })
 
     },
@@ -58,8 +56,14 @@ const itineraryController = {
 
     },
 
-    getComment: (req, res) => {
-
+    getComment: async (req, res) => {
+        id = req.query.idIt
+        
+        console.log(id)
+        const itinerario = await Itinerary.findById({_id: id})
+        console.log(itinerario)
+        res.json({success: true, respuesta: itinerario.comments})
+        
     }
 }
 

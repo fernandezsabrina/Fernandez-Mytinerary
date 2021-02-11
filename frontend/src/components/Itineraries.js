@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { connect } from 'react-redux'
 import itinerariesActions from '../Redux/Actions/itineraryActions'
 import emptyLike from '../assets/emptyLike.png'
@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import Comments from './Comments'
 
 const Itinerary = (props) => {
+    
     const [visible, setVisible] = useState(false)
     const [newComment, setNewComment] = useState({})
     const [liked, setLiked] = useState(false)
@@ -146,7 +147,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
 
-    crearComentario: itinerariesActions.crearComentario
+    crearComentario: itinerariesActions.crearComentario,
+    obtenerComentario: itinerariesActions.obtenerComentario
 }
 
 
