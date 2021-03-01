@@ -9,7 +9,7 @@ const validator = {
             name:Joi.string().trim().alphanum().required(),
             lastname:Joi.string().trim().alphanum().required(),
             country:Joi.string().trim(),
-            urlpic:Joi.string().trim().uri().required(),
+            urlpic:Joi.string().trim().uri(),
             email:Joi.string().trim().required().email({tlds: {allow: false}})
         })
 
