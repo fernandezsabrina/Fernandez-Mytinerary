@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 const authActions = {
     newUser: (nuevoUsuario) => {
         return async (dispatch, getState) => {
-            const respuesta = await axios.post('http://localhost:4000/user/signup', nuevoUsuario)
+            const respuesta = await axios.post('http://mytineraryweb.herokuapp.com/user/signup', nuevoUsuario)
             if (!respuesta.data.success) {
                 return respuesta.data
             }
@@ -20,7 +20,7 @@ const authActions = {
     logFromLocalStorage: (token) => {
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.post('http://localhost:4000/user/ls', { token }, {
+                const respuesta = await axios.post('http://mytineraryweb.herokuapp.com/user/ls', { token }, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -48,7 +48,7 @@ const authActions = {
     loginUser: (user) => {
 
         return async (dispatch, getState) => {
-            const respuesta = await axios.post('http://localhost:4000/user/login', user)
+            const respuesta = await axios.post('http://mytineraryweb.herokuapp.com/user/login', user)
 
             if (!respuesta.data.success) {
 
